@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <!--此配置必须，不配置会报错，计算服务依赖关系-->
+    <dubbo:application name="provider"/>
+    <!--IOC容器中的一个bean-->
+    <bean id="userService" class="com.dubbo.provider.service.UserServiceImpl"/>
+    <!--dubbo暴露服务-->
+    <dubbo:service interface="com.dubbo.sdk.service.UserService" ref="userService" registry="N/A"/>
+
+
+</beans>
