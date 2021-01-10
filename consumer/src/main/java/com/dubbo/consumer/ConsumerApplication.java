@@ -22,7 +22,7 @@ public class ConsumerApplication {
 
         UserService bean = context.getBean(UserService.class);
         String s = bean.sayHello();
-        System.out.println("******************************************");
+
         System.out.println(s);
         logger.info(s + "******************************");
         User user = bean.get("1");
