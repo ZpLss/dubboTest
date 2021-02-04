@@ -28,6 +28,8 @@ public class ConsumerApplication {
         User user = bean.get("1");
         System.out.println("******************************************");
         System.out.println(user);
+
+
     }
 
 
