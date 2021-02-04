@@ -1,11 +1,14 @@
 package com.dubbo.consumer;
 
-import com.dubbo.sdk.model.User;
-import com.dubbo.sdk.service.UserService;
+import com.dubbo.sdk.service.GreetingService;
+import org.apache.dubbo.rpc.RpcContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * Author:zhangp
@@ -19,15 +22,25 @@ public class ConsumerApplication {
     public static void main(String[] args) {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
+        //同步调用
+        RpcContext.getContext().setAttachment("company", "alibaba");
+        GreetingService greetingService = context.getBean(GreetingService.class);
+//        String wahaha = greetingService.sayHello("wahaha");
+//        System.out.println(wahaha);
+//        Result<String> result = greetingService.testGeneric(new PoJo("1", "xiaomei"));
+//        System.out.println(result.getData());
 
-        UserService bean = context.getBean(UserService.class);
-        String s = bean.sayHello();
 
-        System.out.println(s);
-        logger.info(s + "******************************");
-        User user = bean.get("1");
-        System.out.println("******************************************");
-        System.out.println(user);
+        //异步调用
+        System.out.println(greetingService.sayHello("nihao!"));
+        Future<Object> future = RpcContext.getContext().getFuture();
+        try {
+            System.out.println(future.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
 
     }

@@ -10,8 +10,11 @@
     <dubbo:application name="provider"/>
     <!--IOC容器中的一个bean-->
     <bean id="userService" class="com.dubbo.provider.service.UserServiceImpl"/>
+    <bean id="greetingService" class="com.dubbo.provider.service.GreetingServiceImpl"/>
     <!--dubbo暴露服务-->
     <dubbo:service interface="com.dubbo.sdk.service.UserService" ref="userService" registry="N/A"/>
+
+    <dubbo:service interface="com.dubbo.sdk.service.GreetingService" ref="greetingService" registry="N/A"/>
 
 
 </beans>
