@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -22,6 +23,8 @@ public class ConsumerApplication {
     public static void main(String[] args) {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
+        context.getBean("sss");
+
         //同步调用
         RpcContext.getContext().setAttachment("company", "alibaba");
         GreetingService greetingService = context.getBean(GreetingService.class);
@@ -41,6 +44,12 @@ public class ConsumerApplication {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+        HashMap map = new HashMap();
+        map.put("aa", "bb");
+
+
+
 
 
     }

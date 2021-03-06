@@ -9,5 +9,6 @@
     <dubbo:application name="consumer"/>
     <!--dubbo引用远程服务,底层是tcp长连接，端口默认是20880，  直连方式-->
     <dubbo:reference id="userService" interface="com.dubbo.sdk.service.UserService" url="127.0.0.1:20880"/>
+    <dubbo:reference id="greetingService" interface="com.dubbo.sdk.service.GreetingService" async="true" url="127.0.0.1:20880" timeout="20000"/>
 
 </beans>
