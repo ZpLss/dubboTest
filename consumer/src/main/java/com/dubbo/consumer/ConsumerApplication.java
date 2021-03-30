@@ -4,6 +4,8 @@ import com.dubbo.sdk.service.GreetingService;
 import org.apache.dubbo.rpc.RpcContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,6 +13,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
+@SpringBootApplication
 /**
  * Author:zhangp
  * Date:2021/1/9 15:09
@@ -21,6 +24,9 @@ public class ConsumerApplication {
     public static Logger logger = LoggerFactory.getLogger(ConsumerApplication.class);
 
     public static void main(String[] args) {
+        SpringApplication.run(ConsumerApplication.class, args);
+
+
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
         context.getBean("sss");
@@ -32,7 +38,6 @@ public class ConsumerApplication {
 //        System.out.println(wahaha);
 //        Result<String> result = greetingService.testGeneric(new PoJo("1", "xiaomei"));
 //        System.out.println(result.getData());
-
 
         //异步调用
         System.out.println(greetingService.sayHello("nihao!"));
