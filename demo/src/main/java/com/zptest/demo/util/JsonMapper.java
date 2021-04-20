@@ -1,14 +1,19 @@
 package com.zptest.demo.util;
 
-import net.sf.json.JSONObject;
-import org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.*;
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
-import org.codehaus.jackson.map.util.JSONPObject;
-import org.codehaus.jackson.type.JavaType;
+//import net.sf.json.JSONObject;
+//import org.apache.commons.lang3.StringUtils;
+//import org.codehaus.jackson.JsonGenerator;
+//import org.codehaus.jackson.JsonParser;
+//import org.codehaus.jackson.JsonProcessingException;
+//import org.codehaus.jackson.map.*;
+//import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+//import org.codehaus.jackson.map.util.JSONPObject;
+//import org.codehaus.jackson.type.JavaType;
+
+import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.map.DeserializationConfig;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -23,7 +28,7 @@ public class JsonMapper {
 
 	private ObjectMapper mapper;
 
-	public JsonMapper(Inclusion inclusion) {
+	public JsonMapper(JsonSerialize.Inclusion inclusion) {
 		mapper = new ObjectMapper();
 		// 设置输出时包含属性的风格
 		mapper.getSerializationConfig().setSerializationInclusion(inclusion);
@@ -37,21 +42,21 @@ public class JsonMapper {
 	 * 创建输出全部属性到Json字符串的Mapper.
 	 */
 	public static JsonMapper buildNormalMapper() {
-		return new JsonMapper(Inclusion.ALWAYS);
+		return new JsonMapper(JsonSerialize.Inclusion.ALWAYS);
 	}
 
 	/**
 	 * 创建只输出非空属性到Json字符串的Mapper.
 	 */
 	public static JsonMapper buildNonNullMapper() {
-		return new JsonMapper(Inclusion.NON_NULL);
+		return new JsonMapper(JsonSerialize.Inclusion.NON_NULL);
 	}
 
 	/**
 	 * 创建只输出初始值被改变的属性到Json字符串的Mapper.
 	 */
 	public static JsonMapper buildNonDefaultMapper() {
-		return new JsonMapper(Inclusion.NON_DEFAULT);
+		return new JsonMapper(JsonSerialize.Inclusion.NON_DEFAULT);
 	}
 
 	/**

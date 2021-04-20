@@ -1,12 +1,12 @@
 package com.zptest.demo.controller;
 
-import cn.com.yhfund.yhtradeweb.common.MessageConfig;
-import cn.com.yhfund.yhtradeweb.exception.JsonMessageException;
-import cn.com.yhfund.yhtradeweb.exception.JsonPropertiesException;
-import cn.com.yhfund.yhtradeweb.exception.MessageBasedException;
-import cn.com.yhfund.yhtradeweb.exception.PropertiesBasedException;
-import cn.com.yhfund.yhtradeweb.middleware.MiddlewareServiceConstans;
-import cn.com.yhfund.yhtradeweb.middleware.response.MiddlewareResp;
+import com.zptest.demo.common.MessageConfig;
+import com.zptest.demo.exception.JsonMessageException;
+import com.zptest.demo.exception.JsonPropertiesException;
+import com.zptest.demo.exception.MessageBasedException;
+import com.zptest.demo.exception.PropertiesBasedException;
+import com.zptest.demo.middleware.MiddlewareServiceConstans;
+import com.zptest.demo.middleware.response.MiddlewareResp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;

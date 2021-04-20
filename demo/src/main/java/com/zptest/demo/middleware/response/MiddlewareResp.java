@@ -1,6 +1,7 @@
 package com.zptest.demo.middleware.response;
 
-import cn.com.yhfund.yhtradeweb.middleware.MiddlewareServiceConstans;
+
+import com.zptest.demo.middleware.MiddlewareServiceConstans;
 
 /**
  * Created by wangxin on 2017/5/5.

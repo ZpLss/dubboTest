@@ -1,7 +1,7 @@
 package com.zptest.demo.middleware.request;
 
-import cn.com.yhfund.yhtradeweb.middleware.MiddlewareServiceConstans;
-import cn.com.yhfund.yhtradeweb.utils.Md5Encrypt;
+import com.zptest.demo.middleware.MiddlewareServiceConstans;
+import com.zptest.demo.util.Md5Encrypt;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 
